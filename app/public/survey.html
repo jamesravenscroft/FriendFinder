@@ -174,8 +174,8 @@
             <h2 class="modal-title"><strong>Best Match</strong></h2>
           </div>
           <div class="modal-body">
-            <h2 id="match-name"></h2>
-            <img id="match-img" src="" alt="">
+            <h2 id="#match-name"></h2>
+            <img id="#match-img" src="" alt="">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -249,21 +249,21 @@
               $("#q10").val()
             ]
           };
+          // console.log("this is scores" + scores),
+          console.log("this is name " + userData.name);
+          console.log("this is scores " + userData.scores);
   
           // AJAX post the data to the friends API.
           $.post("/api/friends", userData, function(data) {
   
             // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-            $("#match-name").text(data.name);
-            console.log(name);
-            $("#match-img").attr("src", data.photo);
-            console.log(data.name);
+            $("match-name").text(data.name);
+            $("match-img").attr("src", data.photo);
+            console.log("this is photo " + userData.photo);
   
             // Show the modal with the best match
             $("#results-modal").modal("toggle");
-            console.log(userData),
-            console.log(data)
-  
+            console.log("this is user Data " + userData)
           });
         } else {
           alert("Please fill out all fields before submitting!");
